@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title> GA Access Control</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{ asset('css/vendor.min.css') }}">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+        {% block stylesheets %}
+        <style>
+            .starter-template {
+                padding: 8rem 1.5rem;
+                text-align: center;
+            }
+
+            .custom-control-label {
+              vertical-align: top;
+            }
+
+            .table td, thead {
+              text-align: center;   
+            }
+
+            .form-signin {
+              width: 100%;
+              max-width: 330px;
+              padding: 15px;
+              margin: auto;
+            }
+        </style>
+        {% endblock %}
+       
+    </head>
+    <body class="bg-light">
+        {% block body %}
+        <main role="main" class="container">
+            <div class="starter-template">
+                <h1>Symfony 4 &amp; Bootstrap 4 starter template</h1>
+                <p class="lead">Use this document as a way to quickly start any new project.</p>
+            </div>
+        </main>
+        {% endblock %}
+        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+      <!--   <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"></script> -->
+        <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/index.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/testapi.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/forms.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+
+    </body>
+
+</html>
+

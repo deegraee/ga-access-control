@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+        {% block stylesheets %}
+        <style>
+            html,
+            body {
+              height: 100%;
+            }
+
+            body {
+              display: -ms-flexbox;
+              display: flex;
+              -ms-flex-align: center;
+              align-items: center;
+              padding-top: 40px;
+              padding-bottom: 40px;
+              background-color: #f5f5f5;
+            }
+
+            .form-signin {
+              width: 100%;
+              max-width: 330px;
+              padding: 15px;
+              margin: auto;
+            }
+
+        </style>
+        {% endblock %}
+
+    <title>File Upload</title>
+
+    <link rel="stylesheet" href="{{ asset('css/vendor.min.css') }}">
+  </head>
+
+  <body class="text-center">
+
+    <form class="form-signin"  action="{{ path('generatefile') }}" method="POST" >
+      <div class="form-group">  
+        <h1 class="h3 mb-3 font-weight-normal" >Generate Excel</h1>
+         <button class="btn btn-lg btn-success btn-block" type="submit">Generate</button>
+      </div>
+    </form>
+
+    <hr/>
+    <form class="form-signin" enctype="multipart/form-data" action="{{ path('readfile') }}" target="_blank" method="POST" onsubmit="return(validate());">
+      <h1 class="h3 mb-3 font-weight-normal" >Upload your File</h1>
+        <hr/>
+        <div class="form-group">   
+          <input name="file" type="file" class="form-control-file" id="upload" >
+        </div>
+        <hr/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+  </body>
+
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+<script type="text/javascript">
+  function validate(){
+     
+      if($('#upload').val() == ''){
+          alert("Attachment Required");
+          this.focus();
+           return false;
+      }
+    
+  }
+
+
+     (function($) {
+          $.fn.checkFileType = function(options) {
+              var defaults = {
+                  allowedExtensions: [],
+                  success: function() {},
+                  error: function() {}
+              };
+              options = $.extend(defaults, options);
+
+              return this.each(function() {
+
+                  $(this).on('change', function() {
+                      var value = $(this).val(),
+                          file = value.toLowerCase(),
+                          extension = file.substring(file.lastIndexOf('.') + 1);
+
+                      if ($.inArray(extension, options.allowedExtensions) == -1) {
+                          options.error();
+                          $(this).focus();
+                      } else {
+                          options.success();
+
+                      }
+
+                  });
+
+              });
+          };
+
+      })(jQuery);
+
+      $(function() {
+          $('#upload').checkFileType({
+              allowedExtensions: ['xlsx', 'xls'],
+              success: function() {
+                  return true;
+              },
+              error: function() {
+                  alert('Only Excel files allowed');
+                  $('#upload').val('');
+                  return false;
+              }
+          });
+
+      });
+
+
+</script>
+
+
+</html>

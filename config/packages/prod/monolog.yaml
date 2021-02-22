@@ -1,0 +1,32 @@
+monolog:
+    channels: [transaction]   # Custom channel
+    handlers:
+        main:
+            type: fingers_crossed
+            action_level: error
+            handler: nested
+            excluded_404s:
+                # regex: exclude all 404 errors from the logs
+                - ^/
+        nested:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+        console:
+            type: console
+            process_psr_3_messages: false
+            channels: ["!event", "!doctrine"]
+        deprecation:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.deprecations.log"
+        deprecation_filter:
+            type: filter
+            handler: deprecation
+            max_level: info
+            channels: ["php"]
+        transaction:   # Custom handler
+            # level: debug
+            type: stream
+            path:  "%kernel.logs_dir%/transactions_%kernel.environment%.log"   # Custom log file
+            channels: ['transaction']   # Custom channel
+            # formatter: app_transaction.formatter.transaction   # Custom formatter

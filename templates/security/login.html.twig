@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+        {% block stylesheets %}
+        <style>
+            html,
+            body {
+              height: 100%;
+            }
+
+            body {
+              display: -ms-flexbox;
+              display: flex;
+              -ms-flex-align: center;
+              align-items: center;
+              padding-top: 40px;
+              padding-bottom: 40px;
+              background-color: #f5f5f5;
+            }
+
+            .form-signin {
+              width: 100%;
+              max-width: 330px;
+              padding: 15px;
+              margin: auto;
+            }
+
+        </style>
+        {% endblock %}
+
+    <title>Google Signin</title>
+
+    <link rel="stylesheet" href="{{ asset('css/vendor.min.css') }}">
+  </head>
+
+  <body class="text-center">
+    <form class="form-signin">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <a href="{{ path('connect_google') }}" class="btn btn-lg btn-danger btn-block" >Sign in with <b>Google</b></a>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+  </body>
+</html>

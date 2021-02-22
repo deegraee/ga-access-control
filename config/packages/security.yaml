@@ -1,0 +1,39 @@
+security:
+    # providers:
+    providers:
+        my_provider:
+            entity: { class: App:User, property: username }
+   
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            form_login:
+                login_path: /login
+                check_path: /connect/google/check
+                # always_use_default_target_path: false
+                # default_target_path:            /home_index
+                # target_path_parameter:          _target_path
+                # use_referer:                    false
+            logout: ~
+            #     path: /logout
+            #     target: /login
+            # logout_on_user_change: true
+
+            guard:
+                authenticators:
+                    - App\Security\GoogleAuthenticator
+    access_control:
+          - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+          - { path: ^/connect/google, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+          - { path: ^/connect/check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+          - { path: ^/home_index, roles: IS_AUTHENTICATED_FULLY }
+
+          - { path: ^/upload, roles: IS_AUTHENTICATED_FULLY }
+          - { path: ^/readfile, roles: IS_AUTHENTICATED_FULLY }
+
+          - { path: ^/testapi, roles: IS_AUTHENTICATED_FULLY }
+          - { path: ^/, roles: IS_AUTHENTICATED_FULLY }

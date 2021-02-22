@@ -1,0 +1,95 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+
+
+ <div class="container-fluid">
+      <div class="py-5 text-center">
+        <h2>Google Analytics API TEST</h2>
+        <p class="lead">This is for API testing calls</p>
+      </div>
+
+    <hr/>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Account User Links <small> webservice test </small></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button class="btn btn-sm btn-info" id="listAccountUsers">List</button>
+            <button class="btn btn-sm btn-success" id="insertAccountUsers">Insert</button>
+            <button class="btn btn-sm btn-warning" id="updateAccountUsers">Update</button>
+            <button class="btn btn-sm btn-danger" id="deleteAccountUsers">Delete</button>
+          </div>
+          <button class="btn btn-sm btn-dark" id="listAccounts">
+            List All Accounts
+          </button>
+        
+        </div>
+      </div>
+
+    <hr/>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Web Property User Links <small> webservice test </small></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button class="btn btn-sm btn-info" id="listPropertyUsers">List</button>
+            <button class="btn btn-sm btn-success" id="insertPropertyUsers">Insert</button>
+            <button class="btn btn-sm btn-warning" id="updatePropertyUsers">Update</button>
+            <button class="btn btn-sm btn-danger" id="deletePropertyUsers">Delete</button>
+          </div>
+          <button class="btn btn-sm btn-dark" id="listProperties">
+            List All Properties
+          </button>
+        </div>
+      </div>
+
+    <hr/>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Profile User Links <small> webservice test </small></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button class="btn btn-sm btn-info" id="listProfileUsers">List</button>
+            <button class="btn btn-sm btn-success" id="insertProfileUsers">Insert</button>
+            <button class="btn btn-sm btn-warning" id="updateProfileUsers">Update</button>
+            <button class="btn btn-sm btn-danger" id="deleteProfileUsers">Delete</button>
+          </div>
+          <button class="btn btn-sm btn-dark" id="listProfiles">
+            List All Views
+          </button>
+        </div>
+      </div>
+
+    <hr/>
+      <button class="btn btn-sm btn-secondary" id="listAccountsSummaries">
+        List Account Summaries
+      </button>
+
+    <hr/>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2018 Kasatria Technologies</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+ </div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+
+
+{% endblock %}
